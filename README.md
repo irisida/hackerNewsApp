@@ -2,5 +2,5 @@
 
 # HackerNews reader app
 
-A flutter implementation of a reader app for HackerNews as authored by S.Grider in the Flutter course available on Udemy. 
+A flutter implementation of a reader app for HackerNews as authored by S.Grider in the Flutter course available on Udemy. Covers providers, testing using mockClient.
 
