@@ -13,6 +13,7 @@ abstract class Source {
 
 abstract class Cache {
   Future<int> addItem(ItemModel item);
+  Future<int> clear();
 }
 
 class Repository {
@@ -32,7 +33,7 @@ class Repository {
 
   Future<ItemModel> fetchItem(int id) async {
     ItemModel item;
-    Source source;
+    var source; // leave untyped to avoid clash below in pre addItem on the cache
 
     // travese the sources to find a matching
     // source containing the item.
@@ -46,9 +47,18 @@ class Repository {
     }
 
     for (var cache in caches) {
-      cache.addItem(item);
+      if (cache != source) {
+        cache.addItem(item);
+      }
     }
 
     return item;
+  }
+
+  // returns a Future by default
+  clearCache() async {
+    for (var cache in caches) {
+      await cache.clear(); // on completion the Future resolves
+    }
   }
 }

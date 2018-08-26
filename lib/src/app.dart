@@ -6,7 +6,7 @@ class App extends StatelessWidget {
   Widget build(context) {
     return StoriesProvider(
       child: MaterialApp(
-        title: 'NewsApp',
+        title: 'FooBar News',
         home: NewsList(),
       ),
     );
