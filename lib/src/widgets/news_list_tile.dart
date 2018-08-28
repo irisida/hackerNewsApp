@@ -26,14 +26,14 @@ class NewsListTile extends StatelessWidget {
                 return LoadingContainer();
               }
 
-              return buildTile(itemSnapshot.data);
+              return buildTile(context, itemSnapshot.data);
             });
       },
     );
   }
 
   // visual representation of the tiles
-  Widget buildTile(ItemModel item) {
+  Widget buildTile(BuildContext context, ItemModel item) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -44,6 +44,11 @@ class NewsListTile extends StatelessWidget {
             Icon(Icons.comment),
             Text('${item.descendants}'),
           ]),
+          onTap: () {
+            print('${item.id} was tapped');
+            // push the screen related to the item tapped
+            Navigator.pushNamed(context, '/${item.id}');
+          },
         ),
         Divider(),
       ],
