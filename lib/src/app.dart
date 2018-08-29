@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/news_list.dart';
 import 'blocs/stories_provider.dart';
-import 'screens/news_list.dart';
 import 'screens/news_detail.dart';
 import 'blocs/comments_provider.dart';
 
