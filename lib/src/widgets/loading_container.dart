@@ -15,6 +15,8 @@ class LoadingContainer extends StatelessWidget {
 
   buildPlaceholderBoxes() {
     return Column(
+      // left align the placeholder
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
           color: Colors.grey[300],

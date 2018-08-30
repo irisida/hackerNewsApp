@@ -35,7 +35,7 @@ class Repository {
     ItemModel item;
     var source; // leave untyped to avoid clash below in pre addItem on the cache
 
-    // travese the sources to find a matching
+    // traverse the sources to find a matching
     // source containing the item.
     // It looks at the sources lost and checks each in turn
     // therefore the NewsDbProvider then NewsApiProvider

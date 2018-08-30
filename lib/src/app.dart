@@ -11,7 +11,7 @@ class App extends StatelessWidget {
         child: MaterialApp(
           title: 'FooBar News',
           onGenerateRoute: routes,
-          home: NewsList(),
+          //home: NewsList(),
         ),
       ),
     );
@@ -21,6 +21,10 @@ class App extends StatelessWidget {
     if (settings.name == '/') {
       return MaterialPageRoute(
         builder: (context) {
+          final storiesBloc = StoriesProvider.of(context);
+
+          storiesBloc.fetchTopIds();
+
           return NewsList();
         },
       );
