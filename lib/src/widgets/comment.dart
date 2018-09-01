@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import '../models/item_model.dart';
+import './loading_container.dart';
 
 class Comment extends StatelessWidget {
   final int itemId;
@@ -15,7 +16,7 @@ class Comment extends StatelessWidget {
       future: itemMap[itemId],
       builder: (context, AsyncSnapshot<ItemModel> snapshot) {
         if (!snapshot.hasData) {
-          return Text('Loading comment...');
+          return LoadingContainer();
         }
 
         final item = snapshot.data;
@@ -23,7 +24,7 @@ class Comment extends StatelessWidget {
           // shows top level comments
           //Text(snapshot.data.text),
           ListTile(
-            title: Text(item.text),
+            title: buildText(item),
             subtitle: item.by != "" ? Text(item.by) : Text('Deleted'),
             contentPadding: EdgeInsets.only(
               right: 16.0,
@@ -49,5 +50,18 @@ class Comment extends StatelessWidget {
         //return Text(snapshot.data.text);
       },
     );
+  }
+
+  Widget buildText(ItemModel item) {
+    final text = item.text
+        .replaceAll('&#x27;', "'")
+        .replaceAll('<p>', '\n\n')
+        .replaceAll('</p>', '')
+        .replaceAll('&quot;', '"')
+        .replaceAll('&#x2F;', '/')
+        .replaceAll('&lt;', '<')
+        .replaceAll('&gt;', '>');
+
+    return Text(text);
   }
 }

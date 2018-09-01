@@ -20,8 +20,8 @@ class LoadingContainer extends StatelessWidget {
       children: <Widget>[
         Container(
           color: Colors.grey[300],
-          height: 25.0,
-          width: 150.0,
+          height: 30.0,
+          width: 170.0,
           margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
         ),
         Container(

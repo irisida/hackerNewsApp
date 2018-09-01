@@ -15,7 +15,6 @@ class NewsDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange[600],
-        title: Text('Detail screen'),
       ),
       body: buildBody(bloc),
     );
